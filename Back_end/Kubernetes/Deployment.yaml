@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nyapi-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nyapi
+  template:
+    metadata:
+      labels:
+        app: nyapi
+    spec:
+      containers:
+      - name: nyapi
+        image: 315730648862.dkr.ecr.us-east-1.amazonaws.com/nyapi
+        ports:
+        - containerPort: 3000
